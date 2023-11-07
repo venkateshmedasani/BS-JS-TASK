@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <input type="text" id="i1" placeholder="Enter first number"/>
+    </br>
+    </br>
+    
+    <input type="text" id="i2" placeholder="Enter second number"/>
+    </br>
+    </br>
+    <input type="button" onClick="multiplyBy()" value="Multiply"/>
+   </br>
+   </br>
+   <input type="button" onClick="divideBy()" value="Divide"/>
+
+    <p >Result:<br>
+        <span id="i3"></span>
+    </p>
+    <script>
+    function multiplyBy()
+{
+        num1 = document.getElementById("i1").value;
+        num2 = document.getElementById("i2").value;
+        document.getElementById("i3").innerHTML = num1 * num2;
+        
+        
+}
+
+function divideBy() 
+{ 
+        num1 = document.getElementById("i1").value;
+        num2 = document.getElementById("i2").value;
+        document.getElementById("i3").innerHTML = num1 / num2;
+    
+}
+    </script>
+</body>
+</html>

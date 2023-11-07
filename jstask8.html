@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <header style="color: darkblue;">Registration Form</header>
+
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <table border="1">
+            <tr>
+                <td>
+                    <label for="username">First Name</label>
+                    <input type="text" id="username" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ln">Last Name</label>
+                    <input type="text" id="ln" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pass">Password</label>
+                    <input type="password" id="pass" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="repass">Repassword</label>
+                    <input type="password" id="repass" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="gender">Gender</label>
+                    <input type="radio" id="male" name="gender" value="Male" required>Male
+                    <input type="radio" id="female" name="gender" value="Female" required>Female
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="age">Age</label>
+                    <input type="number" id="age" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="address">Address</label>
+                    <textarea id="address" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="State">State</label>
+                    <input type="text" id="State" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="country">Country</label>
+                    <select id="country" required>
+                        <option value="India">India</option>
+                        <option value="France">France</option>
+                        <option value="USA">USA</option>
+                        <option value="New Zealand">New Zealand</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Language">Language Known</label>
+                    <input type="checkbox" id="english" name="language" value="English">English
+                    <input type="checkbox" id="tamil" name="language" value="Tamil">Tamil
+                    <input type="checkbox" id="hindi" name="language" value="Hindi">Hindi
+                    <input type="checkbox" id="telugu" name="language" value="Telugu">Telugu
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="declaration" required>
+                    I hereby declare all details are true
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Log in to <a href="https://www.ethnus.com">Ethnus</a> website
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var lastName = document.getElementById("ln").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("pass").value;
+            var repassword = document.getElementById("repass").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var age = document.getElementById("age").value;
+            var phone = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+            var state = document.getElementById("State").value;
+            var country = document.getElementById("country").value;
+            var languages = document.querySelectorAll('input[name="language"]:checked');
+            var declaration = document.getElementById("declaration");
+
+            if (username.trim() === "") {
+                alert("Please enter your First Name.");
+                return false;
+            }
+
+            if (lastName.trim() === "") {
+                alert("Please enter your Last Name.");
+                return false;
+            }
+
+            if (email.trim() === "") {
+                alert("Please enter your Email.");
+                return false;
+            }
+
+            if (password.trim() === "") {
+                alert("Please enter a Password.");
+                return false;
+            }
+
+            if (repassword.trim() === "") {
+                alert("Please confirm your Password.");
+                return false;
+            }
+
+            if (password !== repassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            if (!gender) {
+                alert("Please select your Gender.");
+                return false;
+            }
+
+            if (age.trim() === "") {
+                alert("Please enter your Age.");
+                return false;
+            }
+
+            if (phone.trim() === "") {
+                alert("Please enter your Phone number.");
+                return false;
+            }
+
+            if (address.trim() === "") {
+                alert("Please enter your Address.");
+                return false;
+            }
+
+            if (state.trim() === "") {
+                alert("Please enter your State.");
+                return false;
+            }
+
+            if (country.trim() === "") {
+                alert("Please select your Country.");
+                return false;
+            }
+
+            if (languages.length === 0) {
+                alert("Please select at least one Language Known.");
+                return false;
+            }
+
+            if (!declaration.checked) {
+                alert("Please check the declaration.");
+                return false;
+            }
+
+            // If all validations pass, return true to submit the form
+            return true;
+        }
+    </script>
+</body>
+</html>
